@@ -1,0 +1,13 @@
+package com.jokeapi.jokeDemo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class JokeDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(JokeDemoApplication.class, args);
+	}
+
+}
