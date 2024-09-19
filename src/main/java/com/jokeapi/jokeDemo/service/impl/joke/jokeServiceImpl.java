@@ -28,7 +28,7 @@ public class jokeServiceImpl implements JokeService {
 
     // EXTRA Grab joke by id --  Use endpoint /jokes/:id
     @Override
-    public jokeResponse getJokeID(String idNum) {
+    public jokeResponse getJokeID(Long idNum) {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+ idNum, jokeResponse.class);
     }
