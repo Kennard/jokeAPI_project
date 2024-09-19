@@ -30,7 +30,7 @@ public class jokeServiceImpl implements JokeService {
     @Override
     public jokeResponse getJokeID(String idNum) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+idNum, jokeResponse.class);
+        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+ idNum, jokeResponse.class);
     }
    
 }
