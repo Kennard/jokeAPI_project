@@ -22,7 +22,7 @@ public class jokeController {
 
     @GetMapping("/types")
     public jokeResponse getJokeTypesList(){
-        return jokeService. getTypesList();
+        return jokeService.getTypesList();
     }
 
     @GetMapping("/type/{jokeType}")
