@@ -23,7 +23,7 @@ public class jokeServiceImpl implements JokeService {
     @Override
     public jokeResponse getJokeType(String jokeType) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+ jokeType +"/random", jokeResponse.class);
+        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+jokeType+"/random", jokeResponse.class);
     }
 
     // EXTRA Grab joke by id --  Use endpoint /jokes/:id

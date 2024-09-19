@@ -20,7 +20,7 @@ public class jokeController {
         return jokeService.getCurrentJoke();
     }
 
-    @GetMapping("/types")
+    @GetMapping("/list")
     public jokeResponse getJokeTypesList(){
         return jokeService.getTypesList();
     }
