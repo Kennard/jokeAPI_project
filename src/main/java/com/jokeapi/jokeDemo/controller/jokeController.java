@@ -1,32 +1,29 @@
 package com.jokeapi.jokeDemo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.jokeapi.jokeDemo.domain.jokeResponse;
 import com.jokeapi.jokeDemo.service.joke.JokeService;
 
 @RestController
-
 public class jokeController {
 
-@Autowired JokeService jokeService;
+    @Autowired
+    private JokeService jokeService;
 
     @GetMapping("/random_joke")
     public jokeResponse getJokeSec(){
         return jokeService.getCurrentJoke();
     }
 
-    @GetMapping("/list")
-    public jokeResponse getJokeTypesList(){
+    @GetMapping("/types")
+    public Object getJokeTypesList(){
         return jokeService.getTypesList();
     }
 
     @GetMapping("/type/{jokeType}")
-    public jokeResponse getJokeTypePath(@PathVariable String jokeType) {
+    public String getJokeTypePath(@PathVariable String jokeType) {
         return jokeService.getJokeType(jokeType);
     }
 
