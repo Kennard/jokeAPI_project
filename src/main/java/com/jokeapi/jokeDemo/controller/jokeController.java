@@ -18,7 +18,7 @@ public class jokeController {
     }
 
     @GetMapping("/types")
-    public Object getJokeTypesList(){
+    public String getJokeTypesList(){
         return jokeService.getTypesList();
     }
 
