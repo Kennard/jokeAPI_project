@@ -33,4 +33,9 @@ public class jokeController {
         return jokeService.getJokeID(idNum);
     }
 
+    @GetMapping("/jokes/{idRandNum}")
+    public String getRandomJokeByNum(@PathVariable Long idRandNum){
+        return jokeService.getRandomJokes(idRandNum);
+    }
+
 }

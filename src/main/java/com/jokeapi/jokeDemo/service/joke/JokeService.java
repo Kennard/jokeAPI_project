@@ -7,4 +7,5 @@ public interface JokeService {
       String getTypesList();
       String getJokeType(String jokeType);
       jokeResponse getJokeID(Long idNum);  // EXTRA
+      String getRandomJokes(Long idRandNum);  // EXTRA
 }

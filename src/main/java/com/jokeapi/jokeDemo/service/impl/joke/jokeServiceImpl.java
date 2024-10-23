@@ -6,7 +6,6 @@ import org.springframework.web.client.RestTemplate;
 import com.jokeapi.jokeDemo.domain.jokeResponse;
 import com.jokeapi.jokeDemo.service.joke.JokeService;
 
-import java.util.Arrays;
 
 @Service
 public class jokeServiceImpl implements JokeService {
@@ -33,6 +32,12 @@ public class jokeServiceImpl implements JokeService {
     public jokeResponse getJokeID(Long idNum) {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/"+ idNum, jokeResponse.class);
+    }
+
+    @Override
+    public String getRandomJokes(Long idRandNum) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject("https://official-joke-api.appspot.com/jokes/random/"+ idRandNum, String.class);
     }
    
 }

@@ -3,7 +3,6 @@ package com.jokeapi.jokeDemo.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 
 @Getter
 @Setter
