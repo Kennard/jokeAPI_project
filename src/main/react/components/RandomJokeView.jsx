@@ -8,14 +8,22 @@ const RandomJokeView = (props) => {
       };
 
         return(
-            <div>
-                <div>
-                    <p>{randomJokeInfo.setup}</p>
+            <div className="conatiner">
+                <div className="row">
+                    <div className="col-3"></div>
+                    <div className="col-6">
+                        <h5>{randomJokeInfo.setup}</h5>
+                        <p>{randomJokeInfo.punchline}</p>
+                    </div> 
+                    <div className="col-3"></div>                 
                 </div>
-                <div>
-                    <p>{randomJokeInfo.punchline}</p>
+                <div className="row">
+                    <div className="col-3"></div>
+                    <div className="col-6">
+                        <button onClick={handleRefresh} type="button" className="btn btn-secondary">Refresh</button>
+                    </div>
+                    <div className="col-3"></div>
                 </div>
-               <button onClick={handleRefresh} type="button" className="btn btn-secondary">Refresh</button>
             </div>
         ) 
  

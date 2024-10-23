@@ -19,11 +19,12 @@ export class JokeTypeOptionContainer  extends Component {
        this.jokeTypeApiCall(null)
    }
 
-
+  
 
    render() {
-    const {randomTypeStatus, randomType, jokeTypes, userJokeType} = this.state
-
+    const {randomTypeStatus, randomType, jokeTypes, userJokeType} = this.state 
+    
+    
     return randomTypeStatus === "SUCCESS" ?
     <React.Fragment>
         {/* <div>
@@ -43,9 +44,9 @@ export class JokeTypeOptionContainer  extends Component {
                 </div>
                <div className="col-8"></div> 
             </div>
-            <div className="row">
-                <div className="col-4 mr-4">
-                <select className="form-select" aria-label="Default select example" >
+            <div className="row">                
+                <div className="col-4 mr-4">                    
+                <select className="form-select" aria-label="Default select example" onChange={(event) => this.setState({userJokeType: event.target.value})}>
                     {jokeTypes.map((userjokeType, index) => (
                         <option key={index} value={userjokeType}>
                         {userjokeType} 
@@ -53,13 +54,13 @@ export class JokeTypeOptionContainer  extends Component {
                     ))}
                 </select>
                 </div>
-                <div className="col-4">
-                    <input 
+                 <div className="col-4">
+                  {/*  <input 
                         placeholder="Select joke type" 
                         type="text" 
                         value={userJokeType} 
                         onChange={(event) => this.setState({userJokeType: event.target.value})}
-                    /> 
+                    />  */}
                 
                     <button disabled={!userJokeType} type="button" className="btn btn-primary" onClick={() => this.randomTypeApiCall(userJokeType)}>
                         Get Joke Type
