@@ -1,31 +1,20 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import RandomJokeView from "../components/RandomJokeView";
+import { useStore } from "../createStore";
+
 
 // functional component
 const RandomJokeContainer = () => {
-    const [randomJoke, setRandomJoke] = useState({})
-    const [randomJokeStatus, setRandomJokeStatus] = useState(null)
-
+    const getrandomjoke = useStore()
     useEffect(() => {
-
-        setRandomJokeStatus("PENDING")
-        axios.get("/random_joke")
-        .then(function(response){
-            setRandomJoke(response.data)
-            setRandomJokeStatus("SUCCESS")
-        })
-        .catch(function(error){
-            randomJokeStatus("FAILURE")
-            console.error(error)
-        })
+        getrandomjoke.fetchRandomJoke()       
     },[])
   
-    return randomJokeStatus === "SUCCESS" ?
+    return getrandomjoke.randomJokeStatus === "SUCCESS" ?
         <RandomJokeView 
-            randomJokeInfo={randomJoke}
+            randomJokeInfo={getrandomjoke.randomJoke}
         />
-        : randomJokeStatus === "FAILURE" ?
+        :  getrandomjoke.randomJokeStatus === "FAILURE" ?
             onFailure()
             : <div className="spinner-border" role="status">
                 <span className="visually-hidden">Loading...</span>

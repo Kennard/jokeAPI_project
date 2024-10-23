@@ -1,6 +1,7 @@
 import React, {  Component } from "react";
 import axios from "axios";
 import JokeView from "../components/JokeView";
+import { useStore } from "../createStore";
 
 // class component
 export class JokeTypeOptionContainer  extends Component {
@@ -18,12 +19,13 @@ export class JokeTypeOptionContainer  extends Component {
        this.randomTypeApiCall(null)
        this.jokeTypeApiCall(null)
    }
-
   
-
-   render() {
-    const {randomTypeStatus, randomType, jokeTypes, userJokeType} = this.state 
+    render() {
     
+    // const storeInfo = useStore.getState();
+    // console.log(storeInfo)  
+
+    const {randomTypeStatus, randomType, jokeTypes, userJokeType} = this.state 
     
     return randomTypeStatus === "SUCCESS" ?
     <React.Fragment>
@@ -54,14 +56,7 @@ export class JokeTypeOptionContainer  extends Component {
                     ))}
                 </select>
                 </div>
-                 <div className="col-4">
-                  {/*  <input 
-                        placeholder="Select joke type" 
-                        type="text" 
-                        value={userJokeType} 
-                        onChange={(event) => this.setState({userJokeType: event.target.value})}
-                    />  */}
-                
+                 <div className="col-4">                 
                     <button disabled={!userJokeType} type="button" className="btn btn-primary" onClick={() => this.randomTypeApiCall(userJokeType)}>
                         Get Joke Type
                     </button>

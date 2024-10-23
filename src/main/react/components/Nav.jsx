@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 // functional component
 const Nav = (props) => {
@@ -8,10 +9,6 @@ const Nav = (props) => {
             url: "/",
             label: "Home"
         },
-        // {
-        //     url: "/random",
-        //     label: "Random Jokes"
-        // },
         {
             url: "/joketype",
             label: "Types"
@@ -30,9 +27,14 @@ const Nav = (props) => {
                 {pageUrls.map((linkInfo, index) => {
                     return (
                      <li key={index} className="nav-item">
-                        <a className={`nav-link ${locationUrl === linkInfo.url ? "active" : ""}`} aria-current="page" href={linkInfo.url}>
-                           {linkInfo.label}
-                        </a>
+                      <NavLink 
+                        to={linkInfo.url} 
+                        className={isActive =>  
+                          "nav-link" + (isActive ? " active" : "")
+                        }
+                      >
+                         {linkInfo.label}
+                      </NavLink>
                      </li>
                   )
                  }
